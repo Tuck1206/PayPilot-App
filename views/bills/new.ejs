@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <title>Add New Bill</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Add New Bill</h1>
+
+<form action="/users/<%= user._id %>/bills" method="post">
+
+  <label for="title">Bill:</label>
+  <input type="text" name="title" id="title" />
+
+
+   <button type="submit">Add Bill</button>
+</form>
+  </body>
+</html>
