@@ -9,13 +9,13 @@ const billSchema = new mongoose.Schema({
   type: String,
     required: true,
   },
-   duedate: {
+   date: {
   type: Date,
     required: true,
   },
   status: {
   type: String,
-    ispaid: Boolean,
+    isPaid: Boolean,
   }
 });
 

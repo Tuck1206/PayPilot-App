@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css"/>
   <title>Home Page</title>
-  <%- include('./partials/_navbar.ejs') %>
-
 </head>
 <body>
 
-  <h1>Welcome to PayPilot</h1>
-  <p>Smater Bill Management, That Lets You Take Control Over Your Bills</p>
+  <h1> Welcome To PayPilot!</h1>
+  <h2></h2> A Smarter Bill Management App That Lets You Take Control Of Your Bills</h2>
+   <br><a href="/users/<%=user._id%>/bills/new">Add New Bill</a>
 </body>
 
 </html>

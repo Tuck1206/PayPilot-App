@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css"/>
+  <title>Editing <%= bill.title %></title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1>Edit <%= bill.billname %> </h1>
+  <form
+   action="/users/<%= user._id %>/bills/<%= bill._id %>?_method=PUT"
+  method="POST"
+  >
+
+  <label for="billname">Bill:</label>
+  <input type="text" name="billname" id="billname" />
+
+  <label for="amount">Amount:</label>
+  <input type="text" name="Amount" id="Amount" />
+
+  <label for="date">Select Due-Date:</label>
+  <input type="date" id="date" name="date">
+
+
+  <label for="isPaid">Paid?</label>
+  <input type="checkbox" name="isPaid" id="isPaid" />
+
+    <button type="submit">Update</button>
+  </form>
+</body>
+</html>

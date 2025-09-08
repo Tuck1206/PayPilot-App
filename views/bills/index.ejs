@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Bills</title>
-  </head>
-  <body>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>My Bills</h1>
-  </body>
+        <title>Your Bills</title>
+</head>
+
+<body>
+    <h1>Your Bills</h1>
+    <h2>
+    <ul>
+        <% bills.forEach((bill)=>{ %>
+                <ol>
+                    <br><a href="/users/<%= user._id %>/bills/<%= bill._id %>">
+                      <%= bill.billname %>
+                    </a>
+                </ol>
+                        <% }) %>
+    </ul>
+    </h2>
+        <a href="/users/<%=user._id%>/bills/new">Add New Bill</a>
+</body>
+
 </html>

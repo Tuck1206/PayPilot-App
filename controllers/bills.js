@@ -12,7 +12,7 @@ router.get('/:billId', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id)
     const bill = currentUser.bills.id(req.params.billId)
-    res.render('bills/recipe.ejs', {
+    res.render('bills/index.ejs', {
       bill: bill,
     })
   } catch (error) {

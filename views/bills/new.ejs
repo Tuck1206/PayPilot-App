@@ -12,9 +12,18 @@
 
 <form action="/users/<%= user._id %>/bills" method="post">
 
-  <label for="title">Bill:</label>
-  <input type="text" name="title" id="title" />
+  <label for="billname">Bill:</label>
+  <input type="text" name="billname" id="billname" />
 
+  <label for="amount">Amount:</label>
+  <input type="text" name="Amount" id="Amount" />
+
+  <label for="date">Select Due-Date:</label>
+  <input type="date" id="date" name="date">
+
+
+  <label for="isPaid">Paid?</label>
+  <input type="checkbox" name="isPaid" id="isPaid" />
 
    <button type="submit">Add Bill</button>
 </form>
