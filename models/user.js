@@ -13,10 +13,9 @@ const billSchema = new mongoose.Schema({
   type: Date,
     required: true,
   },
-  status: {
-  type: String,
-    isPaid: Boolean,
-  }
+  isPaid: {
+  type: Boolean,
+     }
 });
 
 const userSchema = mongoose.Schema({

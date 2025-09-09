@@ -3,6 +3,12 @@ const router = express.Router()
 
 const User = require('../models/user.js')
 
+router.get('/', async(req, res)=> {
+    const user = await User.findById(req.session.user._id)
+    res.render('bills/index.ejs',{
+        bills: user.bills
+    })
+})
 
 router.get('/new', async (req, res) => {
   res.render('bills/new.ejs')
@@ -12,7 +18,7 @@ router.get('/:billId', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id)
     const bill = currentUser.bills.id(req.params.billId)
-    res.render('bills/index.ejs', {
+    res.render('bills/bill.ejs', {
       bill: bill,
     })
   } catch (error) {
@@ -25,7 +31,7 @@ router.get('/:billId', async (req, res) => {
 router.get('/:billId/edit', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id)
-    const bill = currentUser.bills.id(req.params.foodId)
+    const bill = currentUser.bills.id(req.params.billId)
     res.render('bills/edit.ejs', {
       bill: bill,
     })
@@ -36,6 +42,11 @@ router.get('/:billId/edit', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
+     if (req.body.isPaid === "on") {
+    req.body.isPaid = true;
+  } else {
+    req.body.isPaid = false;
+  }
   try {
     const currentUser = await User.findById(req.session.user._id)
     currentUser.bills.push(req.body)
@@ -49,13 +60,19 @@ router.post('/', async (req, res) => {
 
 
 router.put('/:billId', async (req, res) => {
+       if (req.body.isPaid === "on") {
+    req.body.isPaid = true;
+  } else {
+    req.body.isPaid = false;
+  }
+    
   try {
     const currentUser = await User.findById(req.session.user._id)
-    const bill = currentUser.bills.id(req.params.foodId)
+    const bill = currentUser.bills.id(req.params.billId)
     bill.set(req.body)
     await currentUser.save()
     res.redirect(
-      `/users/${currentUser._id}/bills/${req.params.foodId}`
+      `/users/${currentUser._id}/bills/${req.params.billId}`
     )
   } catch (error) {
     console.log(error)
@@ -68,7 +85,7 @@ router.put('/:billId', async (req, res) => {
 router.delete('/:billId', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id)
-    currentUser.bills.id(req.params.foodId).deleteOne()
+    currentUser.bills.id(req.params.billId).deleteOne()
     await currentUser.save()
     res.redirect(`/users/${currentUser._id}/bills`)
   } catch (error) {

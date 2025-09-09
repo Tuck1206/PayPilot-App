@@ -9,8 +9,11 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1><%= bill.billname %></h1>
+    <p><%= bill.amount %></p>
+    <p><%= bill.date.toDateString() %></p>
+    <p><%= bill.isPaid ? 'yes':'no' %></>
 
-    <a href="/users/<%= user._id %>/bills/<%= bill._id %>/edit">
+     <br><a href="/users/<%= user._id %>/bills/<%= bill._id %>/edit">
       Edit This Bill
     </a>
      <form

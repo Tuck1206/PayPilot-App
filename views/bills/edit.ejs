@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/style.css"/>
-  <title>Editing <%= bill.title %></title>
+  <title>Editing <%= bill.billname %></title>
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
@@ -15,17 +15,17 @@
   >
 
   <label for="billname">Bill:</label>
-  <input type="text" name="billname" id="billname" />
+  <input type="text" name="billname" id="billname" value="<%= bill.billname %>" />
 
   <label for="amount">Amount:</label>
-  <input type="text" name="Amount" id="Amount" />
+  <input type="text" name="amount" id="amount" value="<%= bill.amount %>"/>
 
   <label for="date">Select Due-Date:</label>
-  <input type="date" id="date" name="date">
+  <input type="date" id="date" name="date" value="<%= bill.date.toISOString().slice(0, 10) %>">
 
 
   <label for="isPaid">Paid?</label>
-  <input type="checkbox" name="isPaid" id="isPaid" />
+  <input type="checkbox" name="isPaid" <% if (bill.isPaid) { %>checked<% } %> >
 
     <button type="submit">Update</button>
   </form>
