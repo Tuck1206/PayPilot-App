@@ -5,18 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="/stylesheets/style.css"/>
-  
+   <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   <title>Home Page</title>
   
 </head>
 
 <body>
  
-  <h1> Welcome To PayPilot!</h1>
-  <h2> A Smarter Bill Management App That Lets You Take Control Of Your Bills</h2>
-  <% if (user){ %>
-    <br><a href="/users/<%=user._id%>/bills/new">Add New Bill</a>
-  <%}%>
+  <h1 class="animate__animated animate__fadeInDownBig"> Welcome To PayPilot!</h1>
+  <h2 class="animate__animated animate__fadeInUp"> A Smarter Bill Management App That Lets You Take Control Of Your Bills</h2>
+
 </body>
   <a href="/auth/sign-in">Sign In</a>
   <a href="/auth/sign-up">Sign Up</a>

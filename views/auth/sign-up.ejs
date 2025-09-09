@@ -4,11 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="/stylesheets/sign-in.css"/>
+   <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   <title>Sign Up</title>
 </head>
 
 <body>
-  <h1>Create a new account!</h1>
+<h1 class="animate__animated animate__lightSpeedInLeft">Create A New Account!</h1>
   <form action="/auth/sign-up" method="POST">
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" required />
@@ -16,8 +21,9 @@
     <input type="password" name="password" id="password" required />
     <label for="confirmPassword">Confirm Password:</label>
     <input type="password" name="confirmPassword" id="confirmPassword" required />
-    <button type="submit">Sign up</button>
-    <br><a href="/auth/sign-in">Sign In</a>
+    <button type="submit">Sign up</button><br>
+    <br><a href="/auth/sign-in" class="hover-link">Sign In</a>
+  
   </form>
 </body>
 

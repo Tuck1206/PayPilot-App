@@ -1,0 +1,66 @@
+body {
+    background-image: url(https://www.mulcahylawfirm.com/wp-content/uploads/2020/06/finances-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 10px;
+    text-align: center;
+}
+h1 {
+    text-shadow: 1px 1px 1px black, 3px 3px 5px rgb(0, 253, 55);
+    color: #0940e5;
+}
+
+a {
+    color: black;
+    display:inline;
+    padding: 100px;
+}
+
+.navbar {
+  background-color: #333;
+  padding: 3px 0px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.nav-list ol {
+  margin: 20px, 20px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: #00bcd4;
+}
+
+a:link, a:visited {
+background-color: #0940e5;
+color: white;
+padding: 5px 30px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+}
+a:hover, a:active {
+background-color: rgb(26, 255, 0);
+}
+
+ol{
+    font-size: 22px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style:italic;
+    font:bolder;
+    color: rgb(0, 8, 255);
+    text-shadow: 1px 1px 1px black, 3px 3px 5px rgb(0, 253, 17);
+}
