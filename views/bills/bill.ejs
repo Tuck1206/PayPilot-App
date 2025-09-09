@@ -4,16 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/style.css"/>
+     <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <title><%= bill.billname %></title>
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1><%= bill.billname %></h1>
-    <p><%= bill.amount %></p>
-    <p><%= bill.date.toDateString() %></p>
-    <p><%= bill.isPaid ? 'yes':'no' %></>
-
-     <br><a href="/users/<%= user._id %>/bills/<%= bill._id %>/edit">
+    <h2>Amout Due: <%= bill.amount %></h2>
+    <h2>Due-Date: <%= bill.date.toDateString() %></h2>
+    <h2>Paid: <%= bill.isPaid ? 'yes':'no' %></h2>
+    <%= message %>
+    <br><a href="/users/<%= user._id %>/bills/<%= bill._id %>/edit">
       Edit This Bill
     </a>
      <form

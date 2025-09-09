@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Add New Bill</title>
-  </head>
-  <body>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Add New Bill</h1>
+        <h1>Add New Bill</h1>
 
-<form action="/users/<%= user._id %>/bills" method="post">
+        <form action="/users/<%= user._id %>/bills" method="post">
 
-  <label for="billname">Bill:</label>
-  <input type="text" name="billname" id="billname" />
+            <label for="billname">Bill:</label>
+            <input type="text" name="billname" id="billname" />
 
-  <label for="amount">Amount:</label>
-  <input type="text" name="amount" id="amount" />
+            <label for="amount">Amount:</label>
+            <input type="text" name="amount" id="amount" />
 
-  <label for="date">Select Due-Date:</label>
-  <input type="date" id="date" name="date">
+            <label for="date">Select Due-Date:</label>
+            <input type="date" id="date" name="date">
 
 
-  <label for="isPaid">Paid?</label>
-  <input type="checkbox" name="isPaid" id="isPaid" />
+            <label for="isPaid">Paid?</label>
+            <input type="checkbox" name="isPaid" id="isPaid" />
 
-   <button type="submit">Add Bill</button>
-</form>
-  </body>
+            <button type="submit">Add Bill</button>
+        </form>
+</body>
+
 </html>

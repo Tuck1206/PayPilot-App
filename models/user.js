@@ -2,20 +2,20 @@ const mongoose = require('mongoose')
 
 const billSchema = new mongoose.Schema({
   billname: {
-  type: String,
+    type: String,
     required: true,
   },
-   amount: {
-  type: String,
+  amount: {
+    type: String,
     required: true,
   },
-   date: {
-  type: Date,
+  date: {
+    type: Date,
     required: true,
   },
   isPaid: {
-  type: Boolean,
-     }
+    type: Boolean,
+  }
 });
 
 const userSchema = mongoose.Schema({
@@ -27,7 +27,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-   bills: [billSchema]
+  bills: [billSchema]
 })
 
 const User = mongoose.model('User', userSchema)

@@ -23,6 +23,8 @@ mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`)
 })
 
+app.use(express.static('public'))
+
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 app.use(morgan('dev'))
@@ -34,10 +36,10 @@ app.use(
   })
 )
 
-app.use(function(req, res, next) {
-        res.locals.user = req.session.user; // Assuming 'user' is where your user object is stored in the session
-        next();
-    });
+app.use(function (req, res, next) {
+  res.locals.user = req.session.user; // Assuming 'user' is where your user object is stored in the session
+  next();
+});
 
 app.get('/', (req, res) => {
   res.render('home.ejs', {

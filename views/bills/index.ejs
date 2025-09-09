@@ -4,25 +4,44 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <%- include('../partials/_navbar.ejs') %>
         <title>Your Bills</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
 <body>
     <h1>Your Bills</h1>
     <h2>
-    <ul>
-        <% bills.forEach((bill)=>{ %>
+        <ul>
+            <% bills.forEach((bill)=>{ %>
                 <ol>
+
                     <br><a href="/users/<%= user._id %>/bills/<%= bill._id %>">
-                      <%= bill.billname %>
+                        <%= bill.billname %>
+
                     </a>
+                    <P>Due-Date:<%= bill.date.toDateString() %>
+                    </P>
+                    <p>Paid:<%= bill.isPaid ? 'yes' :'no' %>
+                    </p>
+                    <% let message %>
+                        <% const today=new Date() %>
+                            <% today.setHours(0,0,0,0) %>
+                                <%bill.date.setHours(0,0,0,0)%>
+                                    <% if (bill.date.getTime()===today.getTime()){ %>
+                                        <% message="Due Today!" %>
+                                            <% } else if (bill.date.getTime()<=today.getTime()){ %>
+                                                <% message="Past Due" %>
+                                                    <% } else { %>
+                                                        <% message="Upcoming Due-Date" %>
+                                                            <% } %>
+                                                                <%= message%>
                 </ol>
-                        <% }) %>
-    </ul>
+                <% }) %>
+        </ul>
     </h2>
-        <a href="/users/<%=user._id%>/bills/new">Add New Bill</a>
+    <a href="/users/<%=user._id%>/bills/new">Add New Bill</a>
 </body>
 
 </html>
