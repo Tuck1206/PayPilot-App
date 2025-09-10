@@ -1,5 +1,5 @@
 body {
-    background-image: url(https://www.mulcahylawfirm.com/wp-content/uploads/2020/06/finances-2.jpg);
+    background-image: url(https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2022/07/finance.jpeg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -8,10 +8,14 @@ body {
     text-align: center;
 }
 h1 {
-    text-shadow: 1px 1px 1px black, 3px 3px 5px rgb(47, 255, 1);
-    color: #0940e5;
+    text-shadow: 1px 1px 1px black, 3px 3px 5px rgb(1, 255, 31);
+    color: #0910e5;
     text-align: center;
     margin-top: 20px;
+}
+h2{
+     text-shadow: 1px 1px 1px rgb(2, 2, 2), 3px 3px 5px rgb(4, 248, 85);
+    color: #043aff;
 }
 
 a {
@@ -54,7 +58,7 @@ padding: 5px 30px;
 text-align: center;
 text-decoration: none;
 display: inline-block;
-margin: 10px;
+margin: 50px;
 }
 a:hover, a:active {
 background-color: rgb(26, 255, 0);
@@ -124,20 +128,11 @@ ol{
             background-color: #4caf50;
             color: #fff;
         }
-
-        .add-bill {
-            display: block;
-            text-align: center;
-            margin: 20px auto;
-            padding: 10px 20px;
-            background-color: #0077ff;
+        .btn-delete {
+            background-color: #e53935;
             color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            width: 200px;
-            
         }
 
-        .add-bill:hover {
-            background-color: #005fcc;
+        .btn-delete:hover {
+            background-color: #c62828;
         }

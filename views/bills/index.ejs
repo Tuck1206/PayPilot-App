@@ -9,39 +9,42 @@
         <title>Your Bills</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
-
 <body>
     <h1>Your Bills</h1>
-    <h2>
-        <ul>
-            <% bills.forEach((bill)=>{ %>
-                <ol>
 
-                    <br><a href="/users/<%= user._id %>/bills/<%= bill._id %>">
-                        <%= bill.billname %>
+    <div class="bills-container">
+        <% bills.forEach((bill) => { %>
+            <div class="card animate__animated animate__lightSpeedInLeft">
+                <a href="/users/<%= user._id %>/bills/<%= bill._id %>">
+                    <%= bill.billname %>
+                </a>
 
-                    </a>
-                    <P>Due-Date:<%= bill.date.toDateString() %>
-                    </P>
-                    <p>Paid:<%= bill.isPaid ? 'yes' :'no' %>
-                    </p>
-                    <% let message %>
-                        <% const today=new Date() %>
-                            <% today.setHours(0,0,0,0) %>
-                                <%bill.date.setHours(0,0,0,0)%>
-                                    <% if (bill.date.getTime()===today.getTime()){ %>
-                                        <% message="Due Today!" %>
-                                            <% } else if (bill.date.getTime()<=today.getTime()){ %>
-                                                <% message="Past Due" %>
-                                                    <% } else { %>
-                                                        <% message="Upcoming Due-Date" %>
-                                                            <% } %>
-                                                                <%= message%>
-                </ol>
-                <% }) %>
-        </ul>
-    </h2>
-    <a href="/users/<%=user._id%>/bills/new">Add New Bill</a>
+                <p>Due Date: <%= bill.date.toDateString() %></p>
+                <p>Paid: <%= bill.isPaid ? 'Yes' : 'No' %></p>
+
+                <% 
+                    let message;
+                    const today = new Date();
+                    today.setHours(0,0,0,0);
+                    bill.date.setHours(0,0,0,0);
+
+                    if (bill.date.getTime() === today.getTime()) {
+                        message = "Due Today!";
+                        cssClass = "due-today";
+                    } else if (bill.date.getTime() <= today.getTime()) {
+                        message = "Past Due";
+                        cssClass = "past-due";
+                    } else {
+                        message = "Upcoming Due-Date";
+                        cssClass = "upcoming";
+                    }
+                %>
+
+                <p class="status <%= cssClass %>"><%= message %></p>
+            </div>
+        <% }) %>
+    </div>
+
+    <a href="/users/<%= user._id %>/bills/new" class="add-bill">+ Add New Bill</a>
 </body>
-
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <link rel="stylesheet" href="/stylesheets/bill.css"/>
      <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -12,19 +12,44 @@
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1><%= bill.billname %></h1>
-    <h2>Amout Due: <%= bill.amount %></h2>
-    <h2>Due-Date: <%= bill.date.toDateString() %></h2>
-    <h2>Paid: <%= bill.isPaid ? 'yes':'no' %></h2>
-    <%= message %>
-    <br><a href="/users/<%= user._id %>/bills/<%= bill._id %>/edit">
-      Edit This Bill
-    </a>
-     <form
-      action="/users/<%= user._id %>/bills/<%= bill._id %>?_method=DELETE"
-      method="POST"
-    >
-      <br><button type="submit">Delete This Bill</button>
-    </form>
-  </body>
+
+    <div class="bill-container">
+        <div class="bill-card animate__animated animate__fadeInUp">
+            <h1><%= bill.billname %></h1>
+            <h2>Amount Due: <%= bill.amount %></h2>
+            <h2>Due Date: <%= bill.date.toDateString() %></h2>
+            <h2>Paid: <%= bill.isPaid ? 'Yes' : 'No' %></h2>
+
+            <% 
+                let message;
+                const today = new Date();
+                today.setHours(0,0,0,0);
+                bill.date.setHours(0,0,0,0);
+
+                let cssClass = "";
+
+                if (bill.date.getTime() === today.getTime()) {
+                    message = "Due Today!";
+                    cssClass = "due-today";
+                } else if (bill.date.getTime() <= today.getTime()) {
+                    message = "Past Due";
+                    cssClass = "past-due";
+                } else {
+                    message = "Upcoming Due-Date";
+                    cssClass = "upcoming";
+                }
+            %>
+
+            <p class="status <%= cssClass %>"><%= message %></p>
+
+            <div class="actions">
+                <a href="/users/<%= user._id %>/bills/<%= bill._id %>/edit" class="btn btn-edit">Edit Bill</a>
+                
+                <form action="/users/<%= user._id %>/bills/<%= bill._id %>?_method=DELETE" method="POST"><br>
+                    <button type="submit" class="btn btn-delete">Delete Bill</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
