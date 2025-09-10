@@ -11,8 +11,8 @@
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
+    <div class="card animate__animated animate__backInDown">
         <h1>Add New Bill</h1>
-
         <form action="/users/<%= user._id %>/bills" method="post">
 
             <label for="billname">Bill:</label>
@@ -29,6 +29,7 @@
             <input type="checkbox" name="isPaid" id="isPaid" />
 
             <button type="submit">Add Bill</button>
+        </div>
         </form>
 </body>
 

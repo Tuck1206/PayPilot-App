@@ -12,8 +12,9 @@
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
-        <h1>Edit <%= bill.billname %>
-        </h1>
+     <div class="card animate__animated animate__fadeInUpBig">
+        <h1>Edit <%= bill.billname %></h1>
+        
         <form action="/users/<%= user._id %>/bills/<%= bill._id %>?_method=PUT" method="POST">
 
             <label for="billname">Bill:</label>
@@ -30,6 +31,7 @@
             <input type="checkbox" name="isPaid" <% if (bill.isPaid) { %>checked<% } %> >
 
                 <button type="submit">Update</button>
+        </div>
         </form>
 </body>
 
