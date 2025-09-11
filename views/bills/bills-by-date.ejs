@@ -1,0 +1,115 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Displaying JSON Data In Chart</title>
+</head>
+
+<body>
+    <div class="chart">
+  <canvas id="myChart"></canvas>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="mychart.js"></script>
+    <script>
+  const ctx = document.getElementById('myChart');
+
+ fetch('data.json')
+ .then(function(res){
+if (res.ok == true){
+    return res.json()
+}
+ })
+ .then (function(data){
+    createChart(data, 'bar')
+ })
+ 
+  function createChart(data, type){
+
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: data.map(row =>row.billName),
+      datasets: [{
+        label: '# of Votes',
+        data: data.map(row => row.amount),
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      },
+      maintainAspectRatio: false
+    }
+  });
+}
+</script>
+</body> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/bills-by-date.css"/>
+  <title>Bill Visualisation</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <a href="/users/<%=user._id%>/bills">View My Bills</a>
+    <a href="/auth/sign-out">Sign Out</a>
+
+  <canvas id="billChart" width="200" height="50"></canvas>
+
+  <script>
+    // Get the JSON string from the EJS variable and parse it
+    const billsData = JSON.parse('<%- bills %>');
+
+    // Extract labels (bill names or dates) and data (amounts) for the chart
+    const labels = billsData.map(bill => bill.billname);
+    const amounts = billsData.map(bill => bill.amount);
+
+    const ctx = document.getElementById('billChart').getContext('2d');
+    
+    const myChart = new Chart(ctx, {
+        
+      type: 'bar', 
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Bill Amount',
+          data: amounts,
+          backgroundColor: ['rgba(54, 162, 235, 0.5)','red','green'],
+          borderColor: 'black',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top', 
+          },
+          title: {
+            display: true,
+            text: 'Total Bills Chart'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true 
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

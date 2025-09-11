@@ -141,3 +141,8 @@ ol{
         .add-bill:hover {
             background-color: #005fcc;
         }
+         #second-form {
+            background-color: #f0f8ff;
+            padding: 5px;
+            border-radius: 3px;
+         }

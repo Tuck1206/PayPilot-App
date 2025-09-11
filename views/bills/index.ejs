@@ -45,6 +45,25 @@
         <% }) %>
     </div>
 
-    <a href="/users/<%= user._id %>/bills/new" class="add-bill">+ Add New Bill</a>
+    <a href="/users/<%= user._id %>/bills/new" class="add-bill"> Add New Bill</a>
+           
+            <button type="submit">Add Bill</button><br>
+        
+
+             <div class="card animate__animated animate__fadeInUpBig">
+            
+            <form id="second-form"action="/users/<%= user._id %>/bills/bills-by-date" method="POST">
+                
+           <label for="date">Select Start-Date:</label>
+            <input type="date" id="date" name="startDate">
+
+
+          <label for="date">Select End-Date:</label>
+            <input type="date" id="date" name="endDate">
+
+            <button type="submit">View Chart</button>
+
+            </div>
+            </form>
 </body>
 </html>
