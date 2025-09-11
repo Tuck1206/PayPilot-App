@@ -1,32 +1,29 @@
-  
-  #chart-container {
-      width: 80%;
-      margin: 50px auto;
-      background-color: #f9f9f9;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-   
-    canvas {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-a:link, a:visited {
-background-color: #0940e5;
-color: white;
-padding: 5px 30px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-margin: 50px;
+body {
+    background-image: url(https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2022/07/finance.jpeg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
 }
-a:hover, a:active {
-background-color: rgb(26, 255, 0);
+
+a:link,
+a:visited {
+    background-color: #0940e5;
+    color: white;
+    padding: 5px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 50px;
 }
-    
-    
 
+a:hover,
+a:active {
+    background-color: rgb(26, 255, 0);
+}
 
+labels {
+    color: blue;
+}

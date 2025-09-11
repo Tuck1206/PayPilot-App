@@ -9,61 +9,54 @@
         <title>Your Bills</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
+
 <body>
     <h1>Your Bills</h1>
 
     <div class="bills-container">
-        <% bills.forEach((bill) => { %>
+        <% bills.forEach((bill)=> { %>
             <div class="card animate__animated animate__lightSpeedInLeft">
                 <a href="/users/<%= user._id %>/bills/<%= bill._id %>">
                     <%= bill.billname %>
                 </a>
 
-                <p>Due Date: <%= bill.date.toDateString() %></p>
-                <p>Paid: <%= bill.isPaid ? 'Yes' : 'No' %></p>
+                <p>Due Date: <%= bill.date.toDateString() %>
+                </p>
+                <p>Paid: <%= bill.isPaid ? 'Yes' : 'No' %>
+                </p>
 
-                <% 
-                    let message;
-                    const today = new Date();
-                    today.setHours(0,0,0,0);
-                    bill.date.setHours(0,0,0,0);
+                <% let message; const today=new Date(); today.setHours(0,0,0,0); bill.date.setHours(0,0,0,0); if
+                    (bill.date.getTime()===today.getTime()) { message="Due Today!" ; cssClass="due-today" ; } else if
+                    (bill.date.getTime() <=today.getTime()) { message="Past Due" ; cssClass="past-due" ; } else {
+                    message="Upcoming Due-Date" ; cssClass="upcoming" ; } %>
 
-                    if (bill.date.getTime() === today.getTime()) {
-                        message = "Due Today!";
-                        cssClass = "due-today";
-                    } else if (bill.date.getTime() <= today.getTime()) {
-                        message = "Past Due";
-                        cssClass = "past-due";
-                    } else {
-                        message = "Upcoming Due-Date";
-                        cssClass = "upcoming";
-                    }
-                %>
-
-                <p class="status <%= cssClass %>"><%= message %></p>
+                    <p class="status <%= cssClass %>">
+                        <%= message %>
+                    </p>
             </div>
-        <% }) %>
+            <% }) %>
     </div>
 
     <a href="/users/<%= user._id %>/bills/new" class="add-bill"> Add New Bill</a>
-           
-            <button type="submit">Add Bill</button><br>
-        
 
-             <div class="card animate__animated animate__fadeInUpBig">
-            
-            <form id="second-form"action="/users/<%= user._id %>/bills/bills-by-date" method="POST">
-                
-           <label for="date">Select Start-Date:</label>
+    <button type="submit">Add Bill</button><br>
+
+
+    <div class="card animate__animated animate__fadeInUpBig">
+
+        <form id="second-form" action="/users/<%= user._id %>/bills/bills-by-date" method="POST">
+
+            <label for="date">Select Start-Date:</label>
             <input type="date" id="date" name="startDate">
 
 
-          <label for="date">Select End-Date:</label>
+            <label for="date">Select End-Date:</label>
             <input type="date" id="date" name="endDate">
 
             <button type="submit">View Chart</button>
 
-            </div>
-            </form>
+    </div>
+    </form>
 </body>
+
 </html>

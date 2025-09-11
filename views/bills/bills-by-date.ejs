@@ -55,61 +55,89 @@ if (res.ok == true){
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/bills-by-date.css"/>
-  <title>Bill Visualisation</title>
+    <link rel="stylesheet" href="/stylesheets/bills-by-date.css" />
+    <title>Bill Visualisation</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <a href="/users/<%=user._id%>/bills">View My Bills</a>
     <a href="/auth/sign-out">Sign Out</a>
 
-  <canvas id="billChart" width="200" height="50"></canvas>
+    <canvas id="billChart" width="200" height="50"></canvas>
 
-  <script>
-    // Get the JSON string from the EJS variable and parse it
-    const billsData = JSON.parse('<%- bills %>');
+    <script>
 
-    // Extract labels (bill names or dates) and data (amounts) for the chart
-    const labels = billsData.map(bill => bill.billname);
-    const amounts = billsData.map(bill => bill.amount);
+        const billsData = JSON.parse('<%- bills %>');
 
-    const ctx = document.getElementById('billChart').getContext('2d');
-    
-    const myChart = new Chart(ctx, {
-        
-      type: 'bar', 
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Bill Amount',
-          data: amounts,
-          backgroundColor: ['rgba(54, 162, 235, 0.5)','red','green'],
-          borderColor: 'black',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top', 
-          },
-          title: {
-            display: true,
-            text: 'Total Bills Chart'
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true 
-          }
-        }
-      }
-    });
-  </script>
+
+        const labels = billsData.map(bill => bill.billname);
+        const amounts = billsData.map(bill => bill.amount);
+
+        const ctx = document.getElementById('billChart').getContext('2d');
+
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Bill Amount',
+                    data: amounts,
+                    backgroundColor: ['blue', 'red', 'green', 'purple', 'orange'],
+                    borderColor: 'black',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: 'blue',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Total Bills Chart',
+                        color: 'darkblue',
+                        font: {
+                            size: 18
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: 'yellow',
+                            font: {
+                                size: 25
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: 'blue',
+                            font: {
+                                size: 20
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+
+    </script>
 </body>
+
 </html>

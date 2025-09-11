@@ -1,68 +1,67 @@
- body{
-     background-image:url(https://static.vecteezy.com/system/resources/previews/010/518/831/non_2x/digital-finance-and-banking-investment-service-in-futuristic-background-bank-building-with-online-growth-graph-investment-secure-money-and-financial-innovation-technology-vector.jpg)
+ body {
+   background-image: url(https://static.vecteezy.com/system/resources/previews/010/518/831/non_2x/digital-finance-and-banking-investment-service-in-futuristic-background-bank-building-with-online-growth-graph-investment-secure-money-and-financial-innovation-technology-vector.jpg)
  }
-h1{
-    text-align: center;
-    text-shadow: 1px 1px 1px black, 3px 3px 5px rgb(0, 21, 253);
-    color: greenyellow;
-}
-form {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
 
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
+ h1 {
+   text-align: center;
+   text-shadow: 1px 1px 1px black, 3px 3px 5px rgb(0, 21, 253);
+   color: greenyellow;
+ }
 
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+ form {
+   max-width: 400px;
+   margin: 20px auto;
+   padding: 20px;
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   background-color: #f9f9f9;
+ }
 
-  button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+ label {
+   display: block;
+   margin-bottom: 8px;
+   font-weight: bold;
+ }
 
-  button:hover {
-    background-color: #45a049;
-  }
+ input {
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 15px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+ }
 
-  .basic-link {
-  color: #007BFF;
-  text-decoration: none;
-  font-weight: bold;
-}
+ button {
+   background-color: #4CAF50;
+   color: white;
+   padding: 10px 15px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+ }
 
-.basic-link:hover {
-  text-decoration: underline;
-}
+ button:hover {
+   background-color: #45a049;
+ }
 
-.hover-link {
-  color: #3341ff;
-  text-decoration: none;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-  border-bottom: 2px solid transparent;
-}
+ .basic-link {
+   color: #007BFF;
+   text-decoration: none;
+   font-weight: bold;
+ }
 
-.hover-link:hover {
-  color: #00c71e;
-  border-bottom: 2px solid #0000c7;
-}
+ .basic-link:hover {
+   text-decoration: underline;
+ }
 
+ .hover-link {
+   color: #3341ff;
+   text-decoration: none;
+   transition: color 0.3s ease, border-bottom 0.3s ease;
+   border-bottom: 2px solid transparent;
+ }
 
-
+ .hover-link:hover {
+   color: #00c71e;
+   border-bottom: 2px solid #0000c7;
+ }

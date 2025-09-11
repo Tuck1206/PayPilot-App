@@ -37,7 +37,7 @@ app.use(
 )
 
 app.use(function (req, res, next) {
-  res.locals.user = req.session.user; // Assuming 'user' is where your user object is stored in the session
+  res.locals.user = req.session.user; 
   next();
 });
 

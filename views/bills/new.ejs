@@ -11,24 +11,24 @@
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <div class="card animate__animated animate__backInDown">
-        <h1>Add New Bill</h1>
-        <form action="/users/<%= user._id %>/bills" method="post">
+        <div class="card animate__animated animate__backInDown">
+            <h1>Add New Bill</h1>
+            <form action="/users/<%= user._id %>/bills" method="post">
 
-            <label for="billname">Bill:</label>
-            <input type="text" name="billname" id="billname" />
+                <label for="billname">Bill:</label>
+                <input type="text" name="billname" id="billname" />
 
-            <label for="amount">Amount:</label>
-            <input type="text" name="amount" id="amount" />
+                <label for="amount">Amount:</label>
+                <input type="text" name="amount" id="amount" />
 
-            <label for="date">Select Due-Date:</label>
-            <input type="date" id="date" name="date">
+                <label for="date">Select Due-Date:</label>
+                <input type="date" id="date" name="date">
 
 
-            <label for="isPaid">Paid?</label>
-            <input type="checkbox" name="isPaid" id="isPaid" />
+                <label for="isPaid">Paid?</label>
+                <input type="checkbox" name="isPaid" id="isPaid" />
 
-            <button type="submit">Add Bill</button>
+                <button type="submit">Add Bill</button>
         </div>
         </form>
 </body>

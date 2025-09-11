@@ -12,25 +12,26 @@
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
-     <div class="card animate__animated animate__fadeInUpBig">
-        <h1>Edit <%= bill.billname %></h1>
-        
-        <form action="/users/<%= user._id %>/bills/<%= bill._id %>?_method=PUT" method="POST">
+        <div class="card animate__animated animate__fadeInUpBig">
+            <h1>Edit <%= bill.billname %>
+            </h1>
 
-            <label for="billname">Bill:</label>
-            <input type="text" name="billname" id="billname" value="<%= bill.billname %>" />
+            <form action="/users/<%= user._id %>/bills/<%= bill._id %>?_method=PUT" method="POST">
 
-            <label for="amount">Amount:</label>
-            <input type="text" name="amount" id="amount" value="<%= bill.amount %>" />
+                <label for="billname">Bill:</label>
+                <input type="text" name="billname" id="billname" value="<%= bill.billname %>" />
 
-            <label for="date">Select Due-Date:</label>
-            <input type="date" id="date" name="date" value="<%= bill.date.toISOString().slice(0, 10) %>">
+                <label for="amount">Amount:</label>
+                <input type="text" name="amount" id="amount" value="<%= bill.amount %>" />
+
+                <label for="date">Select Due-Date:</label>
+                <input type="date" id="date" name="date" value="<%= bill.date.toISOString().slice(0, 10) %>">
 
 
-            <label for="isPaid">Paid?</label>
-            <input type="checkbox" name="isPaid" <% if (bill.isPaid) { %>checked<% } %> >
+                <label for="isPaid">Paid?</label>
+                <input type="checkbox" name="isPaid" <% if (bill.isPaid) { %>checked<% } %> >
 
-                <button type="submit">Update</button>
+                    <button type="submit">Update</button>
         </div>
         </form>
 </body>
